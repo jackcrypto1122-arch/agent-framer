@@ -1,0 +1,28 @@
+# Logs and runtime
+*.log
+node_modules/
+
+# Browser profile and temp test dumps
+edge_profile/
+click_*_dom.html
+*_dom.html
+*_dom_new.html
+scroller_dom.html
+scroll_dom.html
+diag_dom.html
+rendered_dom*.html
+whitepaper_rendered.html
+toc_links.txt
+toc_snippet*.txt
+
+# Test screenshots
+screenshot_*.png
+test_*.png
+current_view.png
+footer_view.png
+final_home.png
+final_whitepaper.png
+view_at_*.png
+navbar_new_logo.png
+whitepaper_view.png
+whitepaper_fixed.png
