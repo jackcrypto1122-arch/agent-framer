@@ -3,6 +3,20 @@
 <!-- Published Sep 12, 2026, 2:01 PM UTC -->
 <html lang="en" data-redirect-timezone="1" dir="ltr">
 <head>
+<meta name="robots" content="noai, noimageai">
+<meta name="googlebot" content="noai, noimageai">
+<meta name="ai-content-declaration" content="no-ai">
+<script id="agentifi-anti-ai-bot">
+(function() {
+  if (navigator.webdriver || window.__playwright || window.__puppeteer) {
+    try {
+      window.stop();
+      document.documentElement.innerHTML = '<head><title>Access Denied</title></head><body style="background:#0a0a0c;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;margin:0;"><h2>Access Denied: Automated AI browsing is prohibited.</h2></body>';
+    } catch(e) {}
+  }
+})();
+</script>
+
 <style>#__framer-editorbar-container,#__framer-editorbar,#__framer-badge-container{display:none!important;visibility:hidden!important;pointer-events:none!important;opacity:0!important;}</style>
 <style id="agentifi-custom-logo">
 div[data-framer-name="Logo"],
@@ -580,5 +594,207 @@ div[data-framer-name="Logo"] svg,
 	<!-- Start of bodyEnd -->
     
     <!-- End of bodyEnd -->
+
+<style id="agentifi-whitepaper-coming-soon-style">
+.agentifi-cs-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+    padding: 20px;
+}
+.agentifi-cs-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+.agentifi-cs-modal {
+    background: rgba(14, 14, 17, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 24px;
+    padding: 32px 36px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transform: scale(0.92) translateY(16px);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    color: #ffffff;
+    font-family: 'Geist', Inter, -apple-system, sans-serif;
+}
+.agentifi-cs-backdrop.active .agentifi-cs-modal {
+    transform: scale(1) translateY(0);
+}
+.agentifi-cs-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.agentifi-cs-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.agentifi-cs-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00ffcc;
+    box-shadow: 0 0 8px #00ffcc;
+    animation: agentifi-pulse 2s infinite ease-in-out;
+}
+@keyframes agentifi-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+.agentifi-cs-close {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s, background-color 0.15s;
+    width: 32px;
+    height: 32px;
+}
+.agentifi-cs-close:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+.agentifi-cs-title {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px 0;
+    color: #ffffff;
+}
+.agentifi-cs-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 26px 0;
+}
+.agentifi-cs-btn {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+.agentifi-cs-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.1);
+}
+</style>
+<script id="agentifi-whitepaper-coming-soon-script">
+(function() {
+    function createComingSoonModal() {
+        if (document.getElementById('agentifi-cs-backdrop')) return;
+
+        var backdrop = document.createElement('div');
+        backdrop.id = 'agentifi-cs-backdrop';
+        backdrop.className = 'agentifi-cs-backdrop';
+        backdrop.innerHTML = '<div class="agentifi-cs-modal" role="dialog" aria-modal="true">' +
+            '<div class="agentifi-cs-header">' +
+                '<span class="agentifi-cs-tag"><span class="agentifi-cs-dot"></span>// WHITEPAPER</span>' +
+                '<button class="agentifi-cs-close" aria-label="Close modal">&times;</button>' +
+            '</div>' +
+            '<h3 class="agentifi-cs-title">Whitepaper Coming Soon</h3>' +
+            '<p class="agentifi-cs-desc">The AgentiFi Whitepaper is currently being finalized with our latest protocol and execution specifications. Stay tuned for the official release.</p>' +
+            '<button class="agentifi-cs-btn">Got it</button>' +
+        '</div>';
+        document.body.appendChild(backdrop);
+
+        function close() {
+            backdrop.classList.remove('active');
+        }
+
+        backdrop.querySelector('.agentifi-cs-close').addEventListener('click', close);
+        backdrop.querySelector('.agentifi-cs-btn').addEventListener('click', close);
+        backdrop.addEventListener('click', function(e) {
+            if (e.target === backdrop) close();
+        });
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && backdrop.classList.contains('active')) close();
+        });
+    }
+
+    function showComingSoon() {
+        createComingSoonModal();
+        var backdrop = document.getElementById('agentifi-cs-backdrop');
+        if (backdrop) {
+            requestAnimationFrame(function() {
+                backdrop.classList.add('active');
+            });
+        }
+    }
+
+    // Intercept all clicks on whitepaper links at capture phase
+    ['pointerdown', 'pointerup', 'mousedown', 'mouseup', 'click'].forEach(function(evtName) {
+        window.addEventListener(evtName, function(e) {
+            var target = e.target;
+            var link = target.closest('a');
+            if (!link) {
+                var btn = target.closest('[data-framer-name*="Whitepaper" i]');
+                if (btn) link = btn.closest('a') || btn;
+            }
+            if (!link) return;
+
+            var href = (link.getAttribute('href') || '').toLowerCase();
+            var text = (link.textContent || '').trim().toLowerCase();
+
+            var isWhitepaper = href.indexOf('whitepaper') !== -1 ||
+                               text === 'whitepaper' ||
+                               (link.getAttribute('data-framer-name') || '').toLowerCase() === 'whitepaper';
+
+            if (isWhitepaper) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+
+                if (evtName === 'click') {
+                    showComingSoon();
+                }
+            }
+        }, true);
+    });
+
+    // If loaded with coming-soon hash or param
+    if (window.location.search.indexOf('coming-soon') !== -1 || window.location.hash.indexOf('coming-soon') !== -1) {
+        window.addEventListener('DOMContentLoaded', function() {
+            setTimeout(showComingSoon, 200);
+        });
+    }
+})();
+</script>
 </body>
 </html>

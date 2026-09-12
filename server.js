@@ -21,10 +21,27 @@ const MIME_TYPES = {
   '.webp': 'image/webp',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
-  '.ttf': 'font/ttf'
+  '.ttf': 'font/ttf',
+  '.txt': 'text/plain; charset=utf-8'
 };
 
+// Patterns matching AI scrapers, chat browsing agents, and automated crawlers
+const AI_BOT_REGEX = /(ChatGPT-User|GPTBot|OAI-SearchBot|ClaudeBot|Claude-Web|Anthropic-AI|PerplexityBot|Google-Extended|Applebot-Extended|Bytespider|CCBot|Diffbot|FacebookBot|meta-externalagent|Meta-ExternalFetcher|Amazonbot|Cohere-ai|cohere-training|YouBot|Omgilibot|Timpibot|Webzio-Extended|ImagesiftBot|PetalBot|Scrapy|python-requests|aiohttp|httpx|Go-http-client|Wget|HeadlessChrome|PhantomJS)/i;
+
 const server = http.createServer((req, res) => {
+  const userAgent = req.headers['user-agent'] || '';
+
+  // Intercept and block all AI bots and AI chat link-retrieval agents
+  if (AI_BOT_REGEX.test(userAgent)) {
+    res.writeHead(403, {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'X-Robots-Tag': 'noai, noimageai, noindex, nofollow',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0'
+    });
+    res.end('403 Forbidden: Automated access, AI browsing, and bot retrieval are strictly prohibited.');
+    return;
+  }
+
   const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   let reqPath = decodeURIComponent(parsedUrl.pathname);
 
@@ -75,7 +92,8 @@ const server = http.createServer((req, res) => {
 
       res.writeHead(200, {
         'Content-Type': contentType,
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'no-cache',
+        'X-Robots-Tag': 'noai, noimageai'
       });
       res.end(data);
     });
