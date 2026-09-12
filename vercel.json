@@ -5,11 +5,22 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noai, noimageai" }
+        { "key": "X-Robots-Tag", "value": "noai, noimageai, noindex, nofollow" }
       ]
     }
   ],
   "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(ChatGPT-User|GPTBot|OAI-SearchBot|ClaudeBot|Claude-Web|Anthropic|PerplexityBot|Google-Extended|GoogleOther|Applebot-Extended|Bytespider|CCBot|Diffbot|FacebookBot|meta-externalagent|Meta-ExternalFetcher|Amazonbot|Cohere-ai|cohere-training|YouBot|Omgilibot|Timpibot|Webzio-Extended|ImagesiftBot|PetalBot|Scrapy|python-requests|aiohttp|httpx|Go-http-client|Wget|curl).*"
+        }
+      ],
+      "destination": "/api/block"
+    },
     { "source": "/whitepaper", "destination": "/whitepaper/index.html" },
     { "source": "/whitepaper/", "destination": "/whitepaper/index.html" }
   ]
